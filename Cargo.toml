@@ -1,8 +1,10 @@
 [package]
 name = "rusty-home"
 version = "0.1.0"
-authors = ["Antonio Mindov <amindov98@gmail.com>"]
+authors = ["Antonio Mindov <antonio.mindov@chaosgroup.com>"]
 edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 clokwerk = "0.3.0"
