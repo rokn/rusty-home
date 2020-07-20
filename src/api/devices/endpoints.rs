@@ -3,7 +3,7 @@ use rocket::http::Status;
 
 use super::controllers::*;
 use crate::api::sqlite_db::SQLiteDb;
-use crate::api::devices::models::NewDevice;
+use crate::api::devices::view_models::{NewDevice, Device};
 use rocket_contrib::json::Json;
 
 #[get("/devices")]
@@ -22,8 +22,13 @@ pub fn devices_create(new_device: Json<NewDevice>, db: SQLiteDb) -> Status {
 }
 
 #[get("/devices/<id>")]
-pub fn devices_get(id: i32) -> Status {
-    Status::NotImplemented
+pub fn devices_get(id: i32, db: SQLiteDb) -> Result<Json<Device>, Status> {
+    let result = get_device_info(id, db);
+    if result.is_err() {
+        return Err(Status::NotFound)
+    }
+
+    return result.map(Json).map_err(|_| Status::InternalServerError)
 }
 
 #[get("/devices/<device_id>/actions")]

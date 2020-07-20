@@ -1,4 +1,5 @@
 pub mod routes;
 mod endpoints;
-mod models;
+mod dao;
+mod view_models;
 mod controllers;
