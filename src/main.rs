@@ -11,14 +11,22 @@
 //        thread::sleep(Duration::from_millis(10));
 //    }
 //}
+
 #![feature(proc_macro_hygiene, decl_macro)]
 
 #[macro_use] extern crate rocket;
+#[macro_use] extern crate rocket_contrib;
+#[macro_use] extern crate diesel;
+#[macro_use] extern crate serde;
+extern crate dotenv;
 
 mod api;
-use api::routes::*;
+use api::routes::mount_routes;
+use api::sqlite_db::SQLiteDb;
 
 fn main() {
     let my_rocket = rocket::ignite();
-    mount_routes(my_rocket).launch();
+    mount_routes(my_rocket)
+        .attach(SQLiteDb::fairing())
+        .launch();
 }

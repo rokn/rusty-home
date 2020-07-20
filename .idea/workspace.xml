@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -13,16 +31,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968c67c2-2272-479e-9dff-5bfa9e81924c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/rokn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rocket.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/automations/endpoints.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/automations/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/automations/routes.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/devices/controllers.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/devices/endpoints.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/devices/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/devices/models.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/devices/routes.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/endpoints.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/routes.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/sqlite_db.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rusty-home.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rusty-home.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/endpoints.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/mod.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/routes.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/routes.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +65,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,9 +85,37 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/api" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/api" />
+      <recent name="$PROJECT_DIR$/src/api/devices" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="cargo install" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
@@ -65,6 +133,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,17 +142,74 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595172732077</updated>
-      <workItem from="1595172733570" duration="47000" />
+      <workItem from="1595172733570" duration="7885000" />
+      <workItem from="1595280447322" duration="3170000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2098" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595172779679">
+    <state x="1689" y="406" width="1892" height="293" key="#SQL_Dialects" timestamp="1595177214784">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2098" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595172779679" />
+    <state x="1689" y="406" width="1892" height="293" key="#SQL_Dialects/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595177214784" />
+    <state x="2537" y="411" width="206" height="283" key="#Vim_Emulation" timestamp="1595195146674">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2537" y="411" width="206" height="283" key="#Vim_Emulation/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595195146674" />
+    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595194737440">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595194737440" />
+    <state x="2245" y="353" width="844" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595196330562">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2245" y="353" width="844" height="400" key="#com.intellij.fileTypes.FileTypeChooser/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595196330562" />
+    <state x="2364" y="312" key="FileChooserDialogImpl" timestamp="1595177246300">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2364" y="312" key="FileChooserDialogImpl/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595177246300" />
+    <state width="1872" height="277" key="GridCell.Tab.0.bottom" timestamp="1595282753764">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1872" height="277" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595282753764" />
+    <state width="1872" height="277" key="GridCell.Tab.0.center" timestamp="1595282753764">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1872" height="277" key="GridCell.Tab.0.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595282753764" />
+    <state width="1872" height="277" key="GridCell.Tab.0.left" timestamp="1595282753764">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1872" height="277" key="GridCell.Tab.0.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595282753764" />
+    <state width="1872" height="277" key="GridCell.Tab.0.right" timestamp="1595282753764">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1872" height="277" key="GridCell.Tab.0.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595282753764" />
+    <state x="2159" y="189" key="SettingsEditor" timestamp="1595195159455">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2159" y="189" key="SettingsEditor/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595195159455" />
+    <state x="2304" y="254" width="672" height="677" key="run.anything.popup" timestamp="1595176219556">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2304" y="254" width="672" height="677" key="run.anything.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595176219556" />
+    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup" timestamp="1595176219495">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595176219495" />
   </component>
 </project>
