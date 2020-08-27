@@ -1,6 +1,7 @@
 table! {
     action_parameters (id) {
         id -> Integer,
+        action_id -> Integer,
         name -> Text,
         param_type -> Text,
         min -> Nullable<Integer>,
@@ -11,14 +12,8 @@ table! {
 table! {
     actions (id) {
         id -> Integer,
+        device_id -> Integer,
         name -> Text,
-    }
-}
-
-table! {
-    device_actions (device_id, action_id) {
-        device_id -> Nullable<Integer>,
-        action_id -> Nullable<Integer>,
     }
 }
 
@@ -29,12 +24,11 @@ table! {
     }
 }
 
-joinable!(device_actions -> actions (action_id));
-joinable!(device_actions -> devices (device_id));
+joinable!(action_parameters -> actions (action_id));
+joinable!(actions -> devices (device_id));
 
 allow_tables_to_appear_in_same_query!(
     action_parameters,
     actions,
-    device_actions,
     devices,
 );
