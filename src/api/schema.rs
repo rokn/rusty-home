@@ -14,6 +14,7 @@ table! {
         id -> Integer,
         device_id -> Integer,
         name -> Text,
+        link -> Text,
     }
 }
 
