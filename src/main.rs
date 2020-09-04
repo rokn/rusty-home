@@ -14,19 +14,21 @@
 
 #![feature(proc_macro_hygiene, decl_macro)]
 
-#[macro_use] extern crate rocket;
+#[macro_use] extern crate rocket as rocket_lib;
 #[macro_use] extern crate rocket_contrib;
 #[macro_use] extern crate diesel;
 extern crate serde;
 extern crate dotenv;
 
 mod api;
-use api::routes::mount_routes;
+mod frontend;
 use api::sqlite_db::SQLiteDb;
+use rocket_contrib::templates::Template;
 
 fn main() {
-    let my_rocket = rocket::ignite();
-    mount_routes(my_rocket)
-        .attach(SQLiteDb::fairing())
-        .launch();
+    let rocket = rocket_lib::ignite();
+    let rocket = api::routes::mount_routes(rocket);
+    let rocket = frontend::routes::mount_routes(rocket);
+    rocket.attach(SQLiteDb::fairing())
+        .attach(Template::fairing()).launch();
 }

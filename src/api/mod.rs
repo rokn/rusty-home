@@ -1,6 +1,6 @@
 pub mod routes;
 pub mod sqlite_db;
-mod devices;
-mod scenes;
-mod automations;
+pub mod devices;
+pub mod scenes;
+pub mod automations;
 mod schema;

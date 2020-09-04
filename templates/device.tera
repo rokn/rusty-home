@@ -1,0 +1,5 @@
+{% extends "base" %}
+{% block content %}
+    <p>You are looking at device: {{name}}</p>
+{% endblock content %}
+
