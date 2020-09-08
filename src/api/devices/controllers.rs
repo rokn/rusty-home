@@ -9,15 +9,30 @@ type FullDeviceSqlResultRef<'a> = Vec<&'a(DeviceDAO, Option<(ActionDAO, Option<P
 
 type ActionSqlResultRef<'a> = Vec<&'a(ActionDAO, Option<ParameterDAO>)>;
 
-pub fn create_device(new_device: NewDevice, db: SQLiteDb) -> QueryResult<usize> {
+pub enum ControllerError {
+    ValidationError,
+    NotFound,
+    SqlError(diesel::result::Error)
+}
+
+impl From<diesel::result::Error> for ControllerError {
+    fn from(error: diesel::result::Error) -> Self {
+        ControllerError::SqlError(error)
+    }
+}
+
+pub type ControllerResult<T> = Result<T, ControllerError>;
+
+pub fn create_device(new_device: NewDevice, db: SQLiteDb) -> ControllerResult<usize> {
     use crate::api::schema::devices;
 
     diesel::insert_into(devices::table)
         .values(&NewDeviceDAO::from_view_model(&new_device))
-        .execute(&*db)
+        .execute(&*db)?;
+    return Ok(0)
 }
 
-pub fn get_device_info(device_id: i32, db: SQLiteDb) -> QueryResult<Device> {
+pub fn get_device_info(device_id: i32, db: SQLiteDb) -> ControllerResult<Device> {
     use crate::api::schema::devices::dsl::{devices as devices_table, id as id_field};
     use crate::api::schema::actions::dsl::{actions as actions_table};
     use crate::api::schema::action_parameters::dsl::{action_parameters as action_params_table};
@@ -28,7 +43,7 @@ pub fn get_device_info(device_id: i32, db: SQLiteDb) -> QueryResult<Device> {
             .load(&*db)?;
 
     if joined_result.is_empty() {
-        return Err(diesel::NotFound)
+        return Err(ControllerError::NotFound)
     }
 
     let actions = extract_actions(&joined_result.iter().collect());
@@ -38,7 +53,7 @@ pub fn get_device_info(device_id: i32, db: SQLiteDb) -> QueryResult<Device> {
     Ok(Device::from_dao(device_dao, actions))
 }
 
-pub fn list_devices(db: SQLiteDb) -> QueryResult<Vec<Device>> {
+pub fn list_devices(db: SQLiteDb) -> ControllerResult<Vec<Device>> {
     use crate::api::schema::devices::dsl::{devices as devices_table};
     use crate::api::schema::actions::dsl::{actions as actions_table};
     use crate::api::schema::action_parameters::dsl::{action_parameters as action_params_table};
@@ -48,7 +63,7 @@ pub fn list_devices(db: SQLiteDb) -> QueryResult<Vec<Device>> {
             .load(&*db)?;
 
     if joined_result.is_empty() {
-        return Err(diesel::NotFound)
+        return Err(ControllerError::NotFound)
     }
 
     let mut devices = Vec::new();
@@ -80,9 +95,16 @@ fn extract_params(action_result: &ActionSqlResultRef) -> Vec<Parameter> {
         .flatten().map(Parameter::from_dao).collect()
 }
 
-pub fn create_action(device_id: i32, new_action: NewAction, db: SQLiteDb) -> QueryResult<usize> {
+pub fn create_action(device_id: i32, new_action: NewAction, db: SQLiteDb) -> ControllerResult<usize> {
     use crate::api::schema::{actions, action_parameters};
     use crate::api::schema::actions::dsl::id;
+
+    let allowed_types = vec!["range", "percentage"];
+    let has_bad_types = new_action.params.iter()
+        .any(|param| !allowed_types.contains(&&*param.param_type));
+    if has_bad_types {
+        return Err(ControllerError::ValidationError);
+    }
 
     diesel::insert_into(actions::table)
         .values(&NewActionDAO::from_view_model(device_id, &new_action))
@@ -96,16 +118,17 @@ pub fn create_action(device_id: i32, new_action: NewAction, db: SQLiteDb) -> Que
 
     diesel::insert_into(action_parameters::table)
         .values(&new_params)
-        .execute(&*db)
+        .execute(&*db)?;
+    return Ok(0);
 }
 
-pub fn get_action(action_id: i32, db: SQLiteDb) -> QueryResult<Action> {
+pub fn get_action(action_id: i32, db: SQLiteDb) -> ControllerResult<Action> {
     use crate::api::schema::actions::dsl::{actions as actions_table, id as id_field};
     use crate::api::schema::action_parameters::dsl::{action_parameters as action_params_table};
     let sql_result: Vec<(ActionDAO, Option<ParameterDAO>)> = actions_table.left_join(action_params_table)
         .filter(id_field.eq(action_id)).load(&*db)?;
     if sql_result.is_empty() {
-        return Err(diesel::NotFound)
+        return Err(ControllerError::NotFound)
     }
 
     let params = extract_params(&sql_result.iter().collect());

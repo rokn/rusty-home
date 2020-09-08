@@ -25,8 +25,9 @@ pub fn devices_get(id: i32, db: SQLiteDb) -> Result<Template, Status> {
         .map_err(|_| Status::NotFound)
 }
 
-#[get("/actions/<action_id>")]
-pub fn actions_get(action_id: i32, db: SQLiteDb) -> Result<Json<Action>, Status> {
-    let result = get_action(action_id, db);
-    return result.map(Json).map_err(|_| Status::NotFound)
+#[get("/devices/<device_id>/action/new")]
+pub fn actions_create(device_id: i32, db: SQLiteDb) -> Result<Template, Status> {
+    let mut context = HashMap::new();
+    context.insert("device_id", device_id);
+    return Ok(Template::render("action_new", context))
 }

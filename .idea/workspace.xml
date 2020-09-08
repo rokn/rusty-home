@@ -31,17 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968c67c2-2272-479e-9dff-5bfa9e81924c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fcc7a0ba-ae61-4ed8-bd38-fc9191308c05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fcc7a0ba-ae61-4ed8-bd38-fc9191308c05.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2020-07-20-221525_create_actions/down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2020-07-20-221525_create_actions/down.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2020-07-20-221525_create_actions/up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2020-07-20-221525_create_actions/up.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/devices/controllers.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/controllers.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/devices/dao.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/dao.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/devices/endpoints.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/endpoints.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/devices/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/routes.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/devices/view_models.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/view_models.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/schema.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/schema.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/devices/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/devices/routes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/devices/views.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/devices/views.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/device.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/device.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/devices.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/devices.tera" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +129,7 @@
       <workItem from="1595448349741" duration="46000" />
       <workItem from="1598976460677" duration="18000" />
       <workItem from="1598976493249" duration="9988000" />
+      <workItem from="1599591144858" duration="6485000" />
     </task>
     <servers />
   </component>
@@ -172,22 +169,22 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2364" y="312" key="FileChooserDialogImpl/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595448393509" />
-    <state width="1872" height="342" key="GridCell.Tab.0.bottom" timestamp="1598987246378">
+    <state width="936" height="277" key="GridCell.Tab.0.bottom" timestamp="1599599746794">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.0.center" timestamp="1598987246378">
+    <state width="936" height="277" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
+    <state width="936" height="277" key="GridCell.Tab.0.center" timestamp="1599599746794">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.0.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.0.left" timestamp="1598987246378">
+    <state width="936" height="277" key="GridCell.Tab.0.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
+    <state width="936" height="277" key="GridCell.Tab.0.left" timestamp="1599599746794">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.0.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.0.right" timestamp="1598987246378">
+    <state width="936" height="277" key="GridCell.Tab.0.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
+    <state width="936" height="277" key="GridCell.Tab.0.right" timestamp="1599599746794">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.0.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
+    <state width="936" height="277" key="GridCell.Tab.0.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
     <state width="1872" height="342" key="GridCell.Tab.1.bottom" timestamp="1598987246378">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -208,6 +205,10 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2159" y="189" key="SettingsEditor/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598977323700" />
+    <state x="2308" y="129" width="663" height="849" key="find.popup" timestamp="1599595619942">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2308" y="129" width="663" height="849" key="find.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599595619942" />
     <state x="2304" y="254" width="672" height="677" key="run.anything.popup" timestamp="1595176219556">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -218,15 +219,6 @@
     <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595368695680" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/api/devices/endpoints.rs</url>
-          <line>32</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CargoCommandRunConfiguration">
         <watch expression="joined_result.len()" language="Rust" />

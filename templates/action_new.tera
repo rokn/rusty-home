@@ -1,0 +1,83 @@
+{% extends "base" %}
+{% block content %}
+<form class="container mt-5" method >
+  <h3> Creating new action </h3><br>
+  <div class="form-group">
+    <label for="actionName">Action name</label>
+    <input type="text" class="form-control" id="actionName" placeholder="Turn on">
+  </div>
+  <div class="form-group">
+    <label for="actionLink">Activation Link</label>
+    <input type="text" class="form-control" id="actionLink" placeholder="localhost:8080/turn_on">
+  </div>
+  <div id="params">
+  </div>
+  <button class="btn btn-primary" id="addParam">Add parameter</button>
+  <button class="btn btn-primary" id="submit">Submit</button>
+</form>
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script>
+async function createActionRequest(device_id, data = {}) {
+  let url = '/api/v1/devices/' + device_id + '/actions/';
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return true
+}
+
+$('#addParam').click(function(e) {
+  e.preventDefault();
+  $('#params').append(`
+  <div class="param">
+  <h5>Parameter</h5>
+  <div class="form-group">
+    <label for="param_name">Name</label>
+    <input type="text" class="form-control" id="param_name" placeholder="Brightness">
+  </div>
+  <div class="form-group">
+    <label for="param_type">Param type</label>
+    <select class="form-control" id="param_type">
+        <option value="percentage">Percentage</option>
+        <option value="range">Range</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="min">Min</label>
+    <input type="number" class="form-control" id="min" value="0">
+  </div>
+  <div class="form-group">
+    <label for="max">Max</label>
+    <input type="number" class="form-control" id="max" value="100">
+  </div>
+  </div>`);
+});
+$('#submit').click(function(e) {
+  e.preventDefault();
+  new_action = {
+    name: $('#actionName').val(),
+    link: $('#actionLink').val(),
+    params: []
+  }
+  $.each($('.param'), function(i, val) {
+    new_param = {
+      name: $(val).find('#param_name').val(),
+      param_type: $(val).find('#param_type').val(),
+      min: parseInt($(val).find('#min').val()),
+      max: parseInt($(val).find('#max').val()),
+    };
+    new_action.params.push(new_param);
+  });
+  createActionRequest({{device_id}}, new_action);
+  window.location.href = '/devices/{{device_id}}/'
+});
+</script>
+
+{% endblock scripts %}
