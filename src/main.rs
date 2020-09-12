@@ -19,16 +19,19 @@
 #[macro_use] extern crate diesel;
 extern crate serde;
 extern crate dotenv;
+extern crate reqwest;
 
 mod api;
 mod frontend;
-use api::sqlite_db::SQLiteDb;
+use api::sqlite_db::SQLiteDbCtx;
 use rocket_contrib::templates::Template;
+use rocket_contrib::serve::StaticFiles;
 
 fn main() {
     let rocket = rocket_lib::ignite();
     let rocket = api::routes::mount_routes(rocket);
     let rocket = frontend::routes::mount_routes(rocket);
-    rocket.attach(SQLiteDb::fairing())
+    rocket.mount("/static", StaticFiles::from("static"))
+        .attach(SQLiteDbCtx::fairing())
         .attach(Template::fairing()).launch();
 }

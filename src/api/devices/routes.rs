@@ -8,6 +8,7 @@ pub fn get_routes() -> Vec<Route> {
         devices_get,
 
         actions_create,
+        actions_delete,
         actions_get,
         actions_activate,
     ]

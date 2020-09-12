@@ -1,0 +1,32 @@
+{% extends "base" %}
+{% block content %}
+    <div class="container m-5">
+    <h2>{{name}}</h2>
+    <h3>Actions:</h3>
+    {% for action in actions %}
+        <div class="d-flex flex-column border align-items-left">
+            <input type='hidden' class='actionId' value="{{action.real_action.id}}">
+            {# <div class="d-flex row p-2 col-md-12"> #}
+                <p class="btn btn-default m-3 col-md-4" >{{ action.real_action.name }}</button>
+                {# {% if deleteActionButton %}
+                    <button class="btn btn-danger ml-4" onclick="deleteAction({{action.id}})"><i class="far fa-trash-alt"></i></button>
+                {% endif %} #}
+            {# </div> #}
+            {% for param in action.real_action.params %}
+                <div class="d-flex col-md-12">
+                    <label for='param-{{param.name}}'>{{param.name}}:</label>
+                    <input type="number" disabled id="value-{{param.id}}" class="ml-3 mb-3" value="-">
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    {# <a href="/actions/{{id}}/action/new/" class="btn btn-primary">Add new action</a> #}
+    </div>
+{% endblock content %}
+
+
+{% block scripts %}
+
+{# <script src="/static/js/action_scripts.js"></script> #}
+
+{% endblock scripts %}

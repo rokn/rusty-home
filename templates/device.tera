@@ -2,19 +2,17 @@
 {% block content %}
     <div class="container m-5">
     <h2>{{name}}</h2>
+    {% set deleteActionButton = true %}
     {% for action in actions %}
-        <form class="range-field my-4">
-            <div class="d-flex flex-row border align-items-center block">
-                <div class="p-2"><input type="submit" class="btn btn-primary" value="{{ action.name }}"></div>
-                {% for param in action.params %}
-                    {%if param.param_type == "range" %}
-                        <input type="range" class="custom-range p-2" id="customRange1">
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </form>
+        {% include "action_template" %}
     {% endfor %}
     <a href="/devices/{{id}}/action/new/" class="btn btn-primary">Add new action</a>
     </div>
 {% endblock content %}
 
+
+{% block scripts %}
+
+<script src="/static/js/action_scripts.js"></script>
+
+{% endblock scripts %}

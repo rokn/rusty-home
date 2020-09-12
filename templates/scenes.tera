@@ -1,0 +1,45 @@
+{% extends "base" %}
+{% block content %}
+    <div class="row d-flex justify-content-center m-5">
+        <table class="table table-striped table-light col-md-7">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Activate</th>
+            </tr>
+            </thead>
+            {% for scene in scenes %}
+                <tr>
+                    <td>{{ scene.name }}</td>
+                    <td><a href="/scenes/{{scene.id}}" class="btn btn-secondary"><i class="far fa-edit"></i></a></td>
+                    <td><a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+                    <td><button class="btn btn-default" onclick="activateScene({{scene.id}})"><i class="fas fa-rocket"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script>
+function activateScene(id) {
+    let url = '/api/v1/scenes/' + id + '/activate/';
+    fetch(url, {
+        method: 'POST'
+    }).then(function(r) {
+        if (r.ok) {
+            alert("Scene executed successfully");
+        } else {
+            alert("Error!");
+        }
+    });
+}
+</script>
+
+{% endblock scripts %}
+

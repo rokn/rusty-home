@@ -31,11 +31,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="968c67c2-2272-479e-9dff-5bfa9e81924c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/errors.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/controllers.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/dao.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/scenes/view_models.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/scenes/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/scenes/routes.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/scenes/views.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fcc7a0ba-ae61-4ed8-bd38-fc9191308c05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fcc7a0ba-ae61-4ed8-bd38-fc9191308c05.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/devices/controllers.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/controllers.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/devices/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/devices/routes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/devices/endpoints.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/endpoints.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/devices/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/routes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/devices/view_models.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/devices/view_models.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/scenes/endpoints.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/scenes/endpoints.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/scenes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/scenes/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/schema.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/schema.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sqlite_db.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/sqlite_db.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/devices/views.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/devices/views.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/routes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/routes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/device.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/device.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/devices.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/devices.tera" afterDir="false" />
     </list>
@@ -71,7 +90,7 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/mnt/hdd/compute-shader-particles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,16 +99,20 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="org.rust.disableDetachedFileInspection/home/rokn/Programming/rusty-home/src/frontend/scenes/views.rs" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Debugger.ObjectiveC" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/frontend" />
+      <recent name="$PROJECT_DIR$/src/api/scenes" />
       <recent name="$PROJECT_DIR$/src/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/api" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/api/devices" />
     </key>
   </component>
@@ -129,7 +152,10 @@
       <workItem from="1595448349741" duration="46000" />
       <workItem from="1598976460677" duration="18000" />
       <workItem from="1598976493249" duration="9988000" />
-      <workItem from="1599591144858" duration="6485000" />
+      <workItem from="1599591144858" duration="6732000" />
+      <workItem from="1599674721216" duration="7983000" />
+      <workItem from="1599835900808" duration="3509000" />
+      <workItem from="1599909965755" duration="14833000" />
     </task>
     <servers />
   </component>
@@ -157,10 +183,10 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2537" y="411" width="206" height="283" key="#Vim_Emulation/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595195146674" />
-    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595285107646">
+    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599838427177">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595285107646" />
+    <state x="2094" y="209" width="831" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599838427177" />
     <state x="2245" y="353" width="844" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595196330562">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -169,56 +195,70 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2364" y="312" key="FileChooserDialogImpl/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595448393509" />
-    <state width="936" height="277" key="GridCell.Tab.0.bottom" timestamp="1599599746794">
+    <state width="1872" height="342" key="GridCell.Tab.0.bottom" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="277" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
-    <state width="936" height="277" key="GridCell.Tab.0.center" timestamp="1599599746794">
+    <state width="1872" height="342" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.0.center" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="277" key="GridCell.Tab.0.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
-    <state width="936" height="277" key="GridCell.Tab.0.left" timestamp="1599599746794">
+    <state width="1872" height="342" key="GridCell.Tab.0.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.0.left" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="277" key="GridCell.Tab.0.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
-    <state width="936" height="277" key="GridCell.Tab.0.right" timestamp="1599599746794">
+    <state width="1872" height="342" key="GridCell.Tab.0.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.0.right" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="277" key="GridCell.Tab.0.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599599746794" />
-    <state width="1872" height="342" key="GridCell.Tab.1.bottom" timestamp="1598987246378">
+    <state width="1872" height="342" key="GridCell.Tab.0.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.1.bottom" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.1.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.1.center" timestamp="1598987246378">
+    <state width="1872" height="342" key="GridCell.Tab.1.bottom/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.1.center" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.1.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.1.left" timestamp="1598987246378">
+    <state width="1872" height="342" key="GridCell.Tab.1.center/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.1.left" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.1.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
-    <state width="1872" height="342" key="GridCell.Tab.1.right" timestamp="1598987246378">
+    <state width="1872" height="342" key="GridCell.Tab.1.left/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
+    <state width="1872" height="342" key="GridCell.Tab.1.right" timestamp="1599946525756">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="342" key="GridCell.Tab.1.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598987246378" />
+    <state width="1872" height="342" key="GridCell.Tab.1.right/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599946525756" />
     <state x="2159" y="189" key="SettingsEditor" timestamp="1598977323700">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2159" y="189" key="SettingsEditor/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1598977323700" />
-    <state x="2308" y="129" width="663" height="849" key="find.popup" timestamp="1599595619942">
+    <state x="2308" y="129" width="663" height="849" key="find.popup" timestamp="1599942858065">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2308" y="129" width="663" height="849" key="find.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599595619942" />
+    <state x="2308" y="129" width="663" height="849" key="find.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599942858065" />
     <state x="2304" y="254" width="672" height="677" key="run.anything.popup" timestamp="1595176219556">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2304" y="254" width="672" height="677" key="run.anything.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595176219556" />
-    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup" timestamp="1595368695680">
+    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup" timestamp="1599947517861">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1595368695680" />
+    <state x="2279" y="260" width="719" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.129.1680.1050@1680.0.1920.1080" timestamp="1599947517861" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/api/devices/endpoints.rs</url>
+          <line>25</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/api/devices/endpoints.rs</url>
+          <line>26</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CargoCommandRunConfiguration">
         <watch expression="joined_result.len()" language="Rust" />

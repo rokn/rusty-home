@@ -1,0 +1,30 @@
+<form class="range-field my-4">
+    <div class="d-flex flex-column border align-items-left">
+        <input type='hidden' class='actionId' value="{{action.id}}">
+        <div class="d-flex row p-2 col-md-12">
+            <input type="submit" class="btn btn-primary action-button col-md-3 ml-4" value="{{ action.name }}">
+            {% if deleteActionButton %}
+                <button class="btn btn-danger ml-4" onclick="deleteAction({{action.id}})"><i class="far fa-trash-alt"></i></button>
+            {% endif %}
+        </div>
+        {% for param in action.params %}
+            {%if param.param_type == "range" or param.param_type == "percentage"%} 
+                <div class="d-flex col-md-12">
+                    <input type='hidden' class='paramName' value="{{param.name}}">
+                    {% set min = param.min %}
+                    {% set max = param.max %}
+                    {% if param.param_type == "percentage" %}
+                        {% set min = 0 %}
+                        {% set max = 100 %}
+                    {% endif %}
+                    <label for='param-{{param.name}}'>{{param.name}}:</label>
+                    <label>{{min}}</label>
+                    <input type="range" class="custom-range p-2" id="param-{{param.name}}" min="{{min}}" max="{{max}}" onchange="updateValue('value-{{param.id}}', this.value)">
+                    <label>{{max}}</label>
+
+                    <input type="number" disabled id="value-{{param.id}}" class="ml-3 mb-3" value="{{(max - min) / 2 | round}}">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</form>

@@ -83,3 +83,4 @@ pub struct NewAction {
     pub link: String,
     pub params: Vec<NewParameter>
 }
+
