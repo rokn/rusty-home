@@ -5,6 +5,7 @@ use crate::api::devices::controllers::*;
 use crate::api::sqlite_db::SQLiteDbCtx;
 use rocket_contrib::templates::Template;
 use std::collections::HashMap;
+use rocket_contrib::templates::tera::Context;
 
 #[get("/devices")]
 pub fn devices_list(db: SQLiteDbCtx) -> Result<Template, Status> {
@@ -28,4 +29,9 @@ pub fn actions_create(device_id: i32) -> Result<Template, Status> {
     let mut context = HashMap::new();
     context.insert("device_id", device_id);
     return Ok(Template::render("action_new", context))
+}
+
+#[get("/devices/new")]
+pub fn devices_create() -> Result<Template, Status> {
+    return Ok(Template::render("device_new", Context::new()))
 }

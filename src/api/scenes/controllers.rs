@@ -4,7 +4,7 @@ use super::view_models::*;
 use diesel::prelude::*;
 use rocket::http::Status;
 use itertools::Itertools;
-use crate::api::devices::controllers::{get_action, activate_action};
+use crate::api::devices::controllers::{get_action, activate_action, list_devices};
 use crate::api::errors::ControllerError;
 use std::collections::HashMap;
 
@@ -17,20 +17,12 @@ pub type ControllerResult<T> = Result<T, ControllerError>;
 
 pub fn create_scene(new_scene: NewScene, db: SQLiteDb) -> ControllerResult<()> {
     use crate::api::schema::scenes;
-    use crate::api::schema::scenes::dsl::{id as scene_id_field};
-    use crate::api::schema::scene_actions;
-    use crate::api::schema::scene_actions::dsl::{id as scene_action_id_field};
-    use crate::api::schema::scene_parameters;
+    // use crate::api::schema::scenes::dsl::{id as scene_id_field};
 
     let new_scene_dao = NewSceneDAO::from_view_model(&new_scene);
     diesel::insert_into(scenes::table)
         .values(&new_scene_dao)
         .execute(&*db)?;
-    let scene_id: i32 = scenes::table.select(scene_id_field).order(scene_id_field.desc()).first(&*db)?;
-
-    for new_action in new_scene.actions {
-        append_action(scene_id, new_action, db);
-    }
     return Ok(())
 }
 
@@ -135,4 +127,30 @@ pub fn activate_scene(scene_id: i32, db: SQLiteDb) -> ControllerResult<Status> {
     }
 
     Ok(Status::Ok)
+}
+
+pub fn get_scene_action_add_vm(scene_id: i32, db: SQLiteDb) -> ControllerResult<SceneActionAdd> {
+    let devices = list_devices(db)?;
+    Ok(SceneActionAdd {
+        scene_id,
+        devices,
+    })
+}
+
+pub fn delete_scene(scene_id: i32, db: SQLiteDb) -> ControllerResult<()> {
+    use crate::api::schema::scenes::dsl::{scenes as scenes_table, id};
+    use crate::api::schema::scene_actions::dsl::{scene_actions as scene_actions_table, scene_id as scene_id_field, id as id_field};
+    use crate::api::schema::scene_parameters::dsl::{scene_parameters as scene_parameters_table, scene_action_id};
+
+    // TODO: make into a transaction
+    let scene_action_ids: Vec<i32> = scene_actions_table
+        .select(id_field)
+        .filter(scene_id_field.eq(scene_id))
+        .load(db)?;
+
+    diesel::delete(scene_parameters_table.filter(scene_action_id.eq_any(scene_action_ids))).execute(db)?;
+    diesel::delete(scene_actions_table.filter(scene_id_field.eq(scene_id))).execute(db)?;
+    diesel::delete(scenes_table.filter(id.eq(scene_id))).execute(db)?;
+
+    Ok(())
 }

@@ -5,6 +5,7 @@ use crate::api::scenes::controllers::*;
 use crate::api::sqlite_db::SQLiteDbCtx;
 use rocket_contrib::templates::Template;
 use std::collections::HashMap;
+use rocket_contrib::templates::tera::Context;
 
 #[get("/scenes")]
 pub fn scenes_list(db: SQLiteDbCtx) -> Result<Template, Status> {
@@ -25,12 +26,12 @@ pub fn scenes_get(id: i32, db: SQLiteDbCtx) -> Result<Template, Status> {
 
 #[get("/scenes/new")]
 pub fn scenes_create() -> Result<Template, Status> {
-    return Ok(Template::render("scene_new", ()))
+    return Ok(Template::render("scene_new", Context::new()))
 }
 
 #[get("/scenes/<id>/append")]
 pub fn scenes_append(id: i32, db: SQLiteDbCtx) -> Result<Template, Status> {
-    let mut context = HashMap::new();
-    context.insert("scene_id", id);
-    return Ok(Template::render("scene_append", context))
+    let vm = get_scene_action_add_vm(id, &*db);
+    vm.map(|vm| Template::render("scene_append", vm))
+        .map_err(|_| Status::InternalServerError)
 }

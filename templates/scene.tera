@@ -13,20 +13,37 @@
                 {% endif %} #}
             {# </div> #}
             {% for param in action.real_action.params %}
-                <div class="d-flex col-md-12">
+                <div class="d-flex col-md-12 param">
+                    <input type="hidden" class="paramId" value="{{param.id}}">
                     <label for='param-{{param.name}}'>{{param.name}}:</label>
-                    <input type="number" disabled id="value-{{param.id}}" class="ml-3 mb-3" value="-">
+                    <input type="number" disabled id="value-{{param.id}}" class="ml-3 mb-3" value="{{param.min}}">
                 </div>
             {% endfor %}
         </div>
     {% endfor %}
-    {# <a href="/actions/{{id}}/action/new/" class="btn btn-primary">Add new action</a> #}
+    <a href="/scenes/{{id}}/append/" class="btn btn-primary mt-3">Add new action</a>
     </div>
 {% endblock content %}
 
 
 {% block scripts %}
 
-{# <script src="/static/js/action_scripts.js"></script> #}
+
+<script>
+let paramValues = {
+    {% for action in actions %}
+        {% for param in action.parameter_values %}
+            {{param.param_id}}: {{param.param_value}},
+        {% endfor %}
+    {% endfor %}
+}
+
+$(document).ready(function() {
+    $('.param').each(function() {
+        let paramId = $('.paramId').val();
+        $('#value-'+paramId).val(paramValues[paramId]);
+    });
+});
+</script>
 
 {% endblock scripts %}

@@ -30,6 +30,9 @@
             </tbody>
         </table>
     </div>
+    <div class="row d-flex justify-content-center m-5">
+    <a href="/devices/new/" class="btn btn-primary">Add new device</a>
+    </div>
 {% endblock content %}
 
 

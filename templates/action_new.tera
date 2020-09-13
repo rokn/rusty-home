@@ -21,16 +21,15 @@
 {% block scripts %}
 
 <script>
-async function createActionRequest(device_id, data = {}) {
+function createActionRequest(device_id, data = {}) {
   let url = '/api/v1/devices/' + device_id + '/actions/';
-  const response = await fetch(url, {
+  fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  });
-  return true
+  }).then(window.location.href = '/devices/{{device_id}}/');
 }
 
 $('#addParam').click(function(e) {
@@ -76,7 +75,6 @@ $('#submit').click(function(e) {
     new_action.params.push(new_param);
   });
   createActionRequest({{device_id}}, new_action);
-  window.location.href = '/devices/{{device_id}}/'
 });
 </script>
 

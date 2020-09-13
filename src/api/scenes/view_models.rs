@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use serde::Serialize;
 use super::dao::*;
-use crate::api::devices::view_models::Action;
+use crate::api::devices::view_models::{Action, Device};
 
 #[derive(Serialize)]
 pub struct Scene {
@@ -53,7 +53,7 @@ impl SceneParameter {
 #[derive(Deserialize)]
 pub struct NewScene {
     pub name: String,
-    pub actions: Vec<NewSceneAction>
+    // pub actions: Vec<NewSceneAction>
 }
 
 #[derive(Deserialize)]
@@ -66,7 +66,6 @@ pub struct NewSceneParameter {
 pub struct NewSceneAction {
     pub action_id: i32,
     pub param_values: Vec<NewSceneParameter>
-
 }
 
 #[derive(Deserialize)]
@@ -76,3 +75,10 @@ pub struct AppendSceneAction {
     pub param_values: Vec<NewSceneParameter>
 
 }
+
+#[derive(Serialize)]
+pub struct SceneActionAdd {
+    pub scene_id: i32,
+    pub devices: Vec<Device>,
+}
+

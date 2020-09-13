@@ -8,5 +8,7 @@ pub fn get_routes() -> Vec<Route> {
         scenes_create,
         scenes_get,
         scenes_activate,
+        scenes_append_action,
+        scenes_delete,
     ]
 }

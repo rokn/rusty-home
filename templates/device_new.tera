@@ -1,0 +1,37 @@
+{% extends "base" %}
+{% block content %}
+<form class="container mt-5" method >
+  <h3> Creating new device </h3><br>
+  <div class="form-group">
+    <label for="deviceName">Device name</label>
+    <input type="text" class="form-control" id="deviceName" placeholder="Entrance Light">
+  </div>
+  <button class="btn btn-primary" id="submit">Submit</button>
+</form>
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script>
+function createDeviceRequest(data = {}) {
+  let url = '/api/v1/devices/';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(window.location.href = '/devices/');
+}
+
+$('#submit').click(function(e) {
+  e.preventDefault();
+  new_device = {
+    name: $('#deviceName').val(),
+  }
+  createDeviceRequest(new_device);
+});
+</script>
+
+{% endblock scripts %}

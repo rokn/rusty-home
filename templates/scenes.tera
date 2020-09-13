@@ -14,12 +14,15 @@
                 <tr>
                     <td>{{ scene.name }}</td>
                     <td><a href="/scenes/{{scene.id}}" class="btn btn-secondary"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+                    <td><button class="btn btn-danger" onclick="deleteScene({{scene.id}})"><i class="far fa-trash-alt"></i></a></td>
                     <td><button class="btn btn-default" onclick="activateScene({{scene.id}})"><i class="fas fa-rocket"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+    </div>
+    <div class="row d-flex justify-content-center m-5">
+    <a href="/scenes/new/" class="btn btn-primary">Add new scene</a>
     </div>
 {% endblock content %}
 
@@ -38,6 +41,12 @@ function activateScene(id) {
             alert("Error!");
         }
     });
+}
+function deleteScene(id) {
+    let url = '/api/v1/scenes/' + id;
+    fetch(url, {
+        method: 'DELETE'
+    }).then(_ => location.reload());
 }
 </script>
 

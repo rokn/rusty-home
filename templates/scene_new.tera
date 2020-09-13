@@ -1,0 +1,37 @@
+{% extends "base" %}
+{% block content %}
+<form class="container mt-5" method >
+  <h3> Creating new scene </h3><br>
+  <div class="form-group">
+    <label for="sceneName">Scene name</label>
+    <input type="text" class="form-control" id="sceneName" placeholder="Party time">
+  </div>
+  <button class="btn btn-primary" id="submit">Submit</button>
+</form>
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script>
+function createSceneRequest(data = {}) {
+  let url = '/api/v1/scenes/';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(window.location.href = '/scenes/');
+}
+
+$('#submit').click(function(e) {
+  e.preventDefault();
+  new_scene = {
+    name: $('#sceneName').val(),
+  }
+  createSceneRequest(new_scene);
+});
+</script>
+
+{% endblock scripts %}
