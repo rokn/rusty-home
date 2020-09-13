@@ -1,6 +1,6 @@
 {% extends "base" %}
 {% block content %}
-<form class="container mt-5" method >
+<form class="container mt-5" >
   <h3> Creating new device </h3><br>
   <div class="form-group">
     <label for="deviceName">Device name</label>
@@ -22,7 +22,7 @@ function createDeviceRequest(data = {}) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(window.location.href = '/devices/');
+  }).then(_ => window.location.href = '/devices/');
 }
 
 $('#submit').click(function(e) {
